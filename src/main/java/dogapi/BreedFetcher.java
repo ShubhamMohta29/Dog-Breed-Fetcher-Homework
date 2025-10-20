@@ -16,9 +16,13 @@ public interface BreedFetcher {
     List<String> getSubBreeds(String breed) throws BreedNotFoundException;
 
 
-    class BreedNotFoundException extends RuntimeException {
+    class BreedNotFoundException extends Exception {
         public BreedNotFoundException(String breed) {
             super("Breed not found: " + breed);
+        }
+
+        public BreedNotFoundException(String breed, Throwable cause) {
+            super("Breed not found: " + breed, cause);
         }
     }
 }
